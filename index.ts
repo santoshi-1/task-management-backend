@@ -1,10 +1,12 @@
 import express, { Express, Request, Response } from "express";
+import dotenv from "dotenv";
 
 //To instantiate express app
 const app: Express = express();
+dotenv.config();
 
 //Define server port
-const port: number = 3200;
+const port = process.env.PORT;
 
 //create a default route for application
 app.get("/", (req: Request, res: Response) => {
