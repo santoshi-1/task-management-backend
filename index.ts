@@ -3,12 +3,21 @@ import express, {
   Request,
   Response,
 } from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { DataSource } from 'typeorm';
+import { Task } from './src/tasks/tasks.entity';
 
 //To instantiate express app
 const app: Express = express();
 dotenv.config();
+
+//parse request body
+app.use(bodyParser.json());
+
+//use cors install types
+app.use(cors());
 
 //create Database connection
 export const AppDataSource = new DataSource({
@@ -18,6 +27,7 @@ export const AppDataSource = new DataSource({
   username: process.env.MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DB,
+  entities: [Task],
   synchronize: true,
 });
 //Define server port
