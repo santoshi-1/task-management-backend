@@ -1,0 +1,21 @@
+### Fetch all tasks
+GET http://localhost:3200/tasks
+Content-Type: application/json
+
+POST http://localhost:3200/tasks
+Content-Type: application/json
+
+{
+    // "title": "This is a sample title",
+    "date": "2024-01-01T12:00:00Z",
+    "description": "This is description section",
+    "priority": "normal",
+    "status": "To-Do"
+}
+
+PUT http://localhost:3200/tasks
+Content-Type: application/json
+{
+    "id": "bbb87660-392d-4f77-b46c-b603501c232c",
+    "status": "In Progress"
+}
