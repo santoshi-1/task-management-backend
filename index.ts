@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { DataSource } from 'typeorm';
 import { Task } from './src/tasks/tasks.entity';
-import { taskRouter } from './src/tasks/tasks.router';
+import { tasksRouter } from './src/tasks/tasks.router';
 
 //To instantiate express app
 const app: Express = express();
@@ -45,4 +45,4 @@ AppDataSource.initialize()
     console.log(err);
   });
 
-app.use('/', taskRouter);
+app.use('/', tasksRouter);
